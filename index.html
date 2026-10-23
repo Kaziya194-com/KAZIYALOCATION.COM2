@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>KAZIYA Phone Tracker</title>
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#111a2b;--muted:#9aa9c3;--blue:#48a7ff;--line:#263650;--text:#f4f7ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at top,#132646 0%,var(--bg) 55%);color:var(--text)}
+.wrap{width:min(1020px,92%);margin:auto;padding:30px 0 45px}header{display:flex;align-items:center;gap:13px;margin-bottom:26px}
+.logo{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#1f83ff,#63d2ff);color:#06111f;font-size:25px;font-weight:950;box-shadow:0 8px 28px #168bff38}
+h1{font-size:clamp(22px,4vw,32px);margin:0;letter-spacing:.4px}.sub{color:var(--muted);margin:5px 0 0;font-size:14px}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:linear-gradient(180deg,#121d30f5,#0e1727f5);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 18px 55px #0003}
+h2{font-size:19px;margin:0 0 9px}.muted{color:var(--muted);font-size:14px;line-height:1.6}
+.tabs{display:flex;gap:8px;margin:18px 0 4px}.tab{width:auto;flex:1;background:#17253a;color:#c8d8ee;border:1px solid #2b405d;padding:11px;border-radius:11px}.tab.active{background:#173b62;border-color:#48a7ff;color:#fff}
+label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px}input{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #344966;background:#08111f;color:var(--text);font:inherit;outline:none}input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #48a7ff20}
+button{width:100%;padding:13px 15px;border:0;border-radius:12px;font:inherit;font-weight:750;cursor:pointer}.primary{background:linear-gradient(100deg,#2384ff,#51c5ff);color:#05101e;margin-top:13px}.secondary{background:#18263b;color:#eaf3ff;border:1px solid #2b405d;margin-top:10px}
+.status{margin-top:16px;border:1px solid #2b405d;border-radius:13px;padding:13px;background:#0a1322;color:#c4d2e8;font-size:14px;line-height:1.55;min-height:48px}.notice{border-left:3px solid #f5bd4f;padding:12px 13px;background:#2a2418;border-radius:0 10px 10px 0;color:#f3dba6;font-size:13px;line-height:1.6;margin-top:16px}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}.service{padding:15px;border:1px solid #2b405d;background:#0a1322;border-radius:15px}.service strong{display:block;margin-bottom:6px}.service a{display:inline-block;margin-top:10px;color:#82c9ff;font-weight:700;text-decoration:none}.steps{display:grid;gap:12px;margin-top:17px}.step{display:flex;gap:12px;align-items:flex-start;color:#c9d5e8;font-size:14px;line-height:1.55}.num{flex:0 0 27px;height:27px;display:grid;place-items:center;border-radius:9px;background:#18375b;color:#80c5ff;font-weight:800}
+footer{text-align:center;color:#71819d;font-size:12px;margin-top:22px}a{color:#82c9ff}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.card{padding:19px}.services{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><div class="logo">K</div><div><h1>KAZIYA PHONE TRACKER</h1><p class="sub">Lost-phone recovery · Official tools · Privacy-first</p></div></header>
+<div class="layout">
+<section class="card">
+<h2>Check device details</h2>
+<p class="muted">Check a phone number's basic format or verify the structure of an IMEI. These checks do not locate a phone.</p>
+<div class="tabs" role="tablist" aria-label="Choose identifier">
+<button class="tab active" id="phoneTab" type="button" role="tab" aria-selected="true">Mobile number</button>
+<button class="tab" id="imeiTab" type="button" role="tab" aria-selected="false">IMEI number</button>
+</div>
+<form id="checkForm">
+<label id="fieldLabel" for="identifier">Mobile number</label>
+<input id="identifier" type="text" autocomplete="off" placeholder="+94 77 123 4567" required>
+<button class="primary" type="submit">Check Details</button>
+</form>
+<div class="status" id="checkStatus" role="status" aria-live="polite">Choose a number type and enter the details.</div>
+<div class="notice"><strong>Privacy & safety:</strong> A number or IMEI alone cannot provide GPS coordinates. This page does not connect to telecom networks or secretly track devices.</div>
+</section>
+<section class="card">
+<h2>Find a lost phone</h2>
+<p class="muted">Use the official account-based service for the lost device. Sign in only on the official provider website.</p>
+<div class="services">
+<div class="service"><strong>🤖 Android</strong><span class="muted">Google Find Hub / Find My Device</span><a href="https://android.com/find" target="_blank" rel="noopener noreferrer">Open official service ↗</a></div>
+<div class="service"><strong>🍎 iPhone</strong><span class="muted">Apple Find My</span><a href="https://www.icloud.com/find" target="_blank" rel="noopener noreferrer">Open official service ↗</a></div>
+</div>
+<div class="status">The provider may show a current or last-known location if the device, account, settings, and network support it. It is not guaranteed when the phone is switched off.</div>
+</section>
+</div>
+<section class="card" style="margin-top:18px">
+<h2>If your phone was stolen</h2>
+<div class="steps">
+<div class="step"><span class="num">1</span><span>Open the official Google or Apple service above and sign in with the account linked to the missing phone.</span></div>
+<div class="step"><span class="num">2</span><span>Use available options such as secure/lock device, mark as lost, or erase it if appropriate. Do not go to a suspected location yourself.</span></div>
+<div class="step"><span class="num">3</span><span>Contact your mobile carrier to block the SIM and ask about blocking the device using its IMEI. Report the theft to local police and provide the IMEI and proof of ownership.</span></div>
+<div class="step"><span class="num">4</span><span>If the phone is offline or switched off, check the official service for a last-known location later. Availability depends on the phone model and settings enabled before it went missing.</span></div>
+</div>
+</section>
+<footer>© KAZIYA · A lawful lost-device helper. No covert tracking or location lookup from a phone number/IMEI alone.</footer>
+</main>
+<script>
+const phoneTab=document.getElementById('phoneTab'), imeiTab=document.getElementById('imeiTab');
+const fieldLabel=document.getElementById('fieldLabel'), identifier=document.getElementById('identifier'), status=document.getElementById('checkStatus');
+let mode='phone';
+function setMode(next){
+ mode=next; const phone=mode==='phone';
+ phoneTab.classList.toggle('active',phone); imeiTab.classList.toggle('active',!phone);
+ phoneTab.setAttribute('aria-selected',String(phone)); imeiTab.setAttribute('aria-selected',String(!phone));
+ fieldLabel.textContent=phone?'Mobile number':'IMEI number';
+ identifier.value=''; identifier.placeholder=phone?'+94 77 123 4567':'15-digit IMEI';
+ identifier.inputMode=phone?'tel':'numeric';
+ status.textContent=phone?'Enter a phone number to check its basic format.':'Enter a 15-digit IMEI to check its structure.';
+}
+phoneTab.addEventListener('click',()=>setMode('phone'));
+imeiTab.addEventListener('click',()=>setMode('imei'));
+function validLuhn(value){
+ let sum=0, doubleDigit=false;
+ for(let i=value.length-1;i>=0;i--){let d=Number(value[i]);if(doubleDigit){d*=2;if(d>9)d-=9;}sum+=d;doubleDigit=!doubleDigit;}
+ return sum%10===0;
+}
+document.getElementById('checkForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const raw=identifier.value.trim();
+ const digits=raw.replace(/\D/g,'');
+ if(mode==='phone'){
+   if(digits.length<7||digits.length>15){status.textContent='The number length is outside the usual international range. Check the country code and digits.';return;}
+   status.textContent='Plausible number length ('+digits.length+' digits). This is not proof the number is active, and it cannot reveal the phone location.';
+ } else {
+   if(!/^\d{15}$/.test(digits)){status.textContent='IMEI should normally contain exactly 15 digits. Check the number printed on the box, receipt, or device settings.';return;}
+   status.textContent='15-digit IMEI format detected. Check digit: '+(validLuhn(digits)?'valid':'does not pass the standard Luhn check')+'. This does not prove the device is genuine or locate it. Share the IMEI only with your carrier or police when needed.';
+ }
+});
+</script>
+</body>
+</html>
